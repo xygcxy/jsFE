@@ -1,0 +1,85 @@
+<!-- 1.布局 -->
+<html>
+    <div id="main">
+        <div id="content">
+            <div id="mc"></div>
+        </div>
+        <div id="left"></div>
+        <!-- flex布局 -->
+        <!-- <div id="content">
+                <div id="mc"></div>
+            </div> -->
+        <div id="right"></div>
+    </div>
+</html>
+<!-- 圣杯布局 -->
+<style>
+ #main {
+    height: 500px;
+    width: 100%;
+    padding: 0 100px 0 100px;
+}
+#main div {
+    height: 100px;
+}
+/*
+#left {
+    position: relative;
+    float: left;
+    width: 100px;
+    margin-left: -100%;
+    left: -100px;
+    background: red;
+}
+#content {
+    float: left;
+    background: yellow;
+    width: 100%;
+ }
+#right {
+    position: relative;
+    float: left;
+    width: 100px;
+    margin-left: -100px;
+    right: -100px;;
+    background: blue;
+}  */
+/* #left {
+    float: left;
+    margin-left: -100%;
+    width: 100px;
+    background: red;
+}
+#content {
+    float: left;
+    width: 100%;
+    background: grey;
+}
+#mc {
+    margin-left: 100px;
+    background: yellow;
+}
+#right {
+    float: left;
+    width: 100px;
+    margin-right: -100px;
+    background: blue;
+} */
+#main {
+    display: flex;
+    flex: 1;
+}
+#content {
+    flex: 1;
+    background: yellow;
+}
+#left {
+    width: 100px;
+    background: red;
+}
+#right{
+    width: 100px;
+    background: blue;
+}
+</style>
+
