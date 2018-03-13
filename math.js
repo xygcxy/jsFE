@@ -29,7 +29,7 @@ function quicksort(arr) {
     var result = _left.concat(indexitem, _right);
     console.log(result);
 }
-quicksort([4,3,1,6,5,7,8,3,9]);
+// quicksort([4,3,1,6,5,7,8,3,9]);
 
 function quickSort(a) {
     return a.length <= 1 ? a : quickSort(a.slice(1).filter(item => item <= a[0])).concat(a[0], quickSort(a.slice(1).filter(item => item > a[0])));
@@ -149,6 +149,16 @@ this.insert = function (position, element) {
             current.next = node;
             node.prev = current;
             tail = node;
+        } else {
+            while(index++ < position) {
+                previous = current;
+                current = current.next;
+            }
+            node.next = current;
+            previous.next = node;
+
+            current.prev = node;
+            node.prev = previous;
         }
     }
 }
@@ -156,3 +166,33 @@ this.insert = function (position, element) {
 // [0-9]{4}-(0[1-9]|1[0-2])-()
 
 // (\d)(?=(\d{3})+\.)
+
+var event = {
+    client: [],
+    listen: function (key, fn) {
+        if (!this.client[key]) {
+            this.client[key] = [];
+        }
+        this.client.key.push(fn);
+    },
+    trigger: function () {
+        var key = [].shift.call(arguments),
+            fns = this.client[key];
+        if(!fns || fns.length == 0) {
+            return false;
+        }
+        for (var i = 0, fn; fn = fns[i++];) {
+            fn.apply(this, arguments);
+        }
+    },
+    remove: function(key, fn) {
+        var fns = this.client[key];
+        if (!fns) return
+        for (var i = fns.length - 1, fnn; fnn = fns[i--];) {
+            if (fnn == fn) {
+                fns.splice(i, 1);
+            }
+        }
+    }
+}
+
