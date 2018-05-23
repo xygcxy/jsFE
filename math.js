@@ -10,6 +10,30 @@
 //     console.log(arr);
 // }
 // mathseven();
+function quick(arr, start, end) {
+    var mid = start, pivot = arr[start];
+    var temp;
+    for (var i = start + 1; i <= end; i++) {
+        if (arr[i] < pivot) {
+            temp = arr[i]
+            mid++;
+            arr[i] = arr[mid];
+            arr[mid] = temp;
+        }
+    }
+    temp = arr[start];
+    arr[start] = arr[mid];
+    arr[mid] = temp;
+    return mid;
+}
+function quick_sort(arr, start, end) {
+    if (start < end) {
+        var mid = quick(arr, start, end);
+        quick_sort(arr, start, mid-1);
+        quick_sort(arr, mid+1, end)
+    }
+}
+
 
 function quicksort(arr) {
     if (arr.length <= 1) return arr;

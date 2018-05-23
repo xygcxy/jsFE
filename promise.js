@@ -72,16 +72,16 @@ class Promise {
 //     promise.status = FULFILLED;
 // }
 
-new Promise((resolve, reject) => {
-    // setTimeout(() => {
-        var data = 1;
-        console.log(2);
-        resolve(data);
-    // },0)  
-}).then((data) => {
-    console.log(data);
-    resolve(data);
-})
+// new Promise((resolve, reject) => {
+//     // setTimeout(() => {
+//         var data = 1;
+//         console.log(2);
+//         resolve(data);
+//     // },0)  
+// }).then((data) => {
+//     console.log(data);
+//     resolve(data);
+// })
 // }).then((data) => {
 //     console.log(data + '3');
 // })

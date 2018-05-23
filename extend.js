@@ -11,3 +11,35 @@ function queryurl() {
         }
     }
 }
+
+function extend () {
+    var src, target, copy, option;
+    var i = 0;
+    var len = arguments.length;
+    target = arguments[i];
+    i++;
+    for (; i < len; i++) {
+        option = arguments[i];
+        for (var name in option) {
+            scr = target[name];
+            copy = option[name];
+            if (copy && typeof copy === 'Object') {
+                target[name] = extend(src, copy)
+            } else if (copy !== undefined) {
+                target[name] = copy
+            }
+        }
+    }
+    return target
+}
+var a = {
+    c: 'sasasa',
+    d: {
+        e: 121
+    }
+}
+var b = {
+    c: 'dsds',
+    d: 1212
+}
+console.log(extend(a, b))
